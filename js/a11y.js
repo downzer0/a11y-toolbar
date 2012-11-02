@@ -1,7 +1,6 @@
 /*
  * Chris Rodriguez
- * clrux@bu.edu
- * Boston University, bu.edu
+ * chris@inathought.com
 */
 
 // Cookie handler, non-jQuery style
@@ -121,6 +120,7 @@ for (var i = 0, max = sections.length; i < max; i++) {
 }
 
 // If there is a '#' in the URL (someone linking directly to a page with an anchor), go directly to that area and focus is
+// Thanks to WebAIM.org for this idea
 if (document.location.hash) {
 	var anchorUponArrival = document.location.hash;
 	setTimeout(function() {
@@ -130,6 +130,7 @@ if (document.location.hash) {
 }
 
 // Focuses on the correct section of the page if we're page linking
+// Thanks to WebAIM.org for this idea
 $('a[href^="#"]').click(function(event) {
 	var inPageAnchor = "#" + this.href.split('#')[1];
 	$(inPageAnchor).ScrollTo({ duration: 1500 });

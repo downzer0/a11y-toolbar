@@ -1,6 +1,6 @@
 /*
 	Accessibility styles
-	clrux@bu.edu
+	chris@inathought.com
 */
 
 a:focus {
@@ -16,7 +16,6 @@ a:focus {
 	margin: 0;
 	padding: 10px;
 	text-align: center;
-	color: white;
 }
 
 .a11y-jump-link:focus {
