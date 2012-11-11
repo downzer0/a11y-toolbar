@@ -1,14 +1,14 @@
 <h1>a11y (accessibility) toolbar</h1>
 
-<h2>Goals</h2>
+<h3>Goals</h3>
 <ul>
-	<li>Subtle, yet noticeable; easy to use<li>
+	<li>Subtle, yet noticeable; easy to use</li>
 	<li>Minimally "designed" so that anyone and everyone can and will want to use it on their site, blog, ecommerce, etc.</li>
 	<li>Doesn't change existing site layout, but will enhance readability when used</li>
 	<li>Semantic; assistive technology and keyboard accessible</li>
 </ul>
 
-<h2>Known issues (things in-progress)<h2>
+<h3>Known issues (things in-progress)<h3>
 
 <ul>
 	<li>Only Firefox and Webkit browsers can desaturate</li>
