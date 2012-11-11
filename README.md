@@ -8,7 +8,7 @@
 	<li>Semantic; assistive technology and keyboard accessible</li>
 </ul>
 
-<h3>Known issues (things in-progress)<h3>
+<h3>Known issues (things in-progress)</h3>
 
 <ul>
 	<li>Only Firefox and Webkit browsers can desaturate</li>
