@@ -32,16 +32,17 @@ function eraseCookie(name) {
 
 // Prepend our jump-links to the very top of the page, right under <body>
 var insert_a11y_links = '<!-- Accessibility links -->';
-insert_a11y_links += '<a class="a11y-jump-link" href="#maincontent" tabindex="1">Skip to main content</a>';
+insert_a11y_links += '<a class="a11y-jump-link" href="#maincontent">Skip to main content</a>';
+insert_a11y_links += '<a class="a11y-jump-link" href="#search">Skip to search</a>';
 insert_a11y_links += '<!-- // Accessibility links -->';
 
 // Prepend our toolbar to the left side of the page, right under <body>
 var insert_a11y_toolbar = '<!-- a11y toolbar -->';
 insert_a11y_toolbar += '<div class="a11y-toolbar">';
 insert_a11y_toolbar += '<ul>';
-insert_a11y_toolbar += '<li><a href="#" class="a11y-toggle-contrast toggle-contrast" id="is_normal_contrast" accesskey="C" title="Toggle High Contrast"><span class="offscreen">Toggle High Contrast</span><i class="icon icon-adjust"></i></a></li>';
-insert_a11y_toolbar += '<li><a href="#" class="a11y-toggle-grayscale toggle-grayscale" id="is_normal_color" accesskey="S" title="Toggle Grayscale"><span class="offscreen">Toggle Grayscale</span><i class="icon icon-tint"></i></a></li>';
-insert_a11y_toolbar += '<li><a href="#" class="a11y-toggle-fontsize toggle-fontsize" id="is_normal_fontsize" accesskey="F" title="Toggle Font Size"><span class="offscreen">Toggle Font Size</span><i class="icon icon-font"></i></a></li>';
+insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-contrast toggle-contrast" id="is_normal_contrast" accesskey="C" title="Toggle High Contrast"><span class="offscreen">Toggle High Contrast</span><i class="icon icon-adjust"></i></a></li>';
+insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-grayscale toggle-grayscale" id="is_normal_color" accesskey="S" title="Toggle Grayscale"><span class="offscreen">Toggle Grayscale</span><i class="icon icon-tint"></i></a></li>';
+insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-fontsize toggle-fontsize" id="is_normal_fontsize" accesskey="F" title="Toggle Font Size"><span class="offscreen">Toggle Font Size</span><i class="icon icon-font"></i></a></li>';
 insert_a11y_toolbar += '</ul>';
 insert_a11y_toolbar += '</div>';
 insert_a11y_toolbar += '<!-- // a11y toolbar -->';
@@ -124,7 +125,7 @@ for (var i = 0, max = sections.length; i < max; i++) {
 if (document.location.hash) {
 	var anchorUponArrival = document.location.hash;
 	setTimeout(function() {
-		$(anchorUponArrival).Scrollto({ duration: 1500 });
+		// $(anchorUponArrival).Scrollto({ duration: 1000 });
 		$(anchorUponArrival).focus();
 	}, 100);
 }
@@ -133,7 +134,7 @@ if (document.location.hash) {
 // Thanks to WebAIM.org for this idea
 $('a[href^="#"]').click(function(event) {
 	var inPageAnchor = "#" + this.href.split('#')[1];
-	$(inPageAnchor).ScrollTo({ duration: 1500 });
+	// $(inPageAnchor).ScrollTo({ duration: 1000 });
 	setTimeout(function() {
 		$(inPageAnchor).focus();
 	}, 100);
