@@ -1,0 +1,25 @@
+{
+  "name": "a11y",
+  "version": "0.0.0",
+  "description": "Forked version of the a11y toolbar",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kalamuna/a11y.git"
+  },
+  "author": "Kalamuna LLC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalamuna/a11y/issues"
+  },
+  "homepage": "https://github.com/kalamuna/a11y",
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt": "^0.4.4",
+    "grunt-contrib-coffee": "^0.10.1"
+  }
+}
