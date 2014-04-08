@@ -4,7 +4,7 @@
 # * Updated by kalamuna to generalize the settings
 #
 
-a11yToolbar = (settings) ->
+window.a11yToolbar = (settings) ->
   DEFAULTS =
     assets: "/wp-content/themes/ui2011/a11y/"
   conf = $.extend({}, DEFAULTS, settings )
