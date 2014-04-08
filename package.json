@@ -1,6 +1,6 @@
 {
   "name": "a11y",
-  "version": "0.0.0",
+  "version": "1.0.0-alpha",
   "description": "Forked version of the a11y toolbar",
   "main": "Gruntfile.js",
   "scripts": {
