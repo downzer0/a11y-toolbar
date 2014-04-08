@@ -3,6 +3,8 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON("package.json")
 
     coffee:
+      options:
+        bare: true
       dist:
         files:
           'js/a11y.js' : 'coffee/a11y.coffee'

@@ -1,5 +1,5 @@
-(function() {
-  window.a11yToolbar = function(settings) {
+(function($) {
+  return window.a11yToolbar = function(settings) {
     var DEFAULTS, anchorUponArrival, conf, createCookie, eraseCookie, i, insert_a11y_links, insert_a11y_toolbar, max, readCookie, sections;
     DEFAULTS = {
       assets: "/wp-content/themes/ui2011/a11y/"
@@ -128,5 +128,4 @@
       return false;
     });
   };
-
-}).call(this);
+})(jQuery);
