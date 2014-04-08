@@ -7,6 +7,8 @@
   window.a11yToolbar = (settings) ->
     DEFAULTS =
       assets: "/wp-content/themes/ui2011/a11y/"
+      searchLink: "#search"
+      mainLink: "#mainContent"
     conf = $.extend({}, DEFAULTS, settings )
     # Cookie handler, non-jQuery style
     createCookie = (name, value, days) ->
@@ -37,8 +39,11 @@
 
     # Prepend our jump-links to the very top of the page, right under <body>
     insert_a11y_links = "<!-- Accessibility links -->"
-    insert_a11y_links += "<a class=\"a11y-jump-link\" href=\"#maincontent\">Skip to main content</a>"
-    insert_a11y_links += "<a class=\"a11y-jump-link\" href=\"#search\">Skip to search</a>"
+    if conf.searchLink
+      insert_a11y_links += "<a class=\"a11y-jump-link\" href=\"#{conf.mainLink}\">Skip to main content</a>"
+    if conf.searchLink
+
+      insert_a11y_links += "<a class=\"a11y-jump-link\" href=\"#{conf.searchLink}\">Skip to search</a>"
     insert_a11y_links += "<!-- // Accessibility links -->"
 
     # Prepend our toolbar to the left side of the page, right under <body>
