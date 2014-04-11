@@ -7,4 +7,5 @@ $a11y-btn-color-active: #0066cc !default;
 $a11y-z-index: 99999 !default;
 $a11y-border-radius: 4px !default;
 
-$a11y-sprite-path: '../img/sprite.png';
+$a11y-sprite-path: '../img/sprite.png' !default;
+$a11y-sr-only-class: true !default;
