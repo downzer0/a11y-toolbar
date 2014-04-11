@@ -12,6 +12,10 @@
     "css/a11y-desaturate.css",
     "css/a11y-fontsize.css",
     "css/a11y.css",
+    "scss/a11y-contrast.scss",
+    "scss/a11y-desaturate.scss",
+    "scss/a11y-fontsize.scss",
+    "scss/a11y.scss",
     "img/a11y-sprite.png"
   ],
   "license": "MIT",
