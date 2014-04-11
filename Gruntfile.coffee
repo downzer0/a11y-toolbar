@@ -28,5 +28,6 @@ module.exports = (grunt) ->
   grunt.registerTask "default", [
     "coffee"
     "uglify"
+    "sass"
   ]
   return

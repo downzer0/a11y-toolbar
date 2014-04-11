@@ -1,6 +1,6 @@
 (function($) {
   return window.a11yToolbar = function(settings) {
-    var DEFAULTS, anchorUponArrival, conf, createCookie, eraseCookie, i, insert_a11y_links, insert_a11y_toolbar, max, readCookie, sections;
+    var DEFAULTS, conf, createCookie, eraseCookie, insert_a11y_links, insert_a11y_toolbar, readCookie;
     DEFAULTS = {
       assets: "/wp-content/themes/ui2011/a11y/",
       searchLink: "#search",
@@ -98,7 +98,7 @@
       $("head").append($("<link rel=\"stylesheet\" href=\"" + conf.assets + "css/a11y-fontsize.css\" type=\"text/css\" id=\"largerFontsizeStylesheet\" />"));
       $("#is_normal_fontsize").attr("id", "is_large_fontsize").addClass("active");
     }
-    $(".toggle-fontsize").on("click", function() {
+    return $(".toggle-fontsize").on("click", function() {
       if ($(this).attr("id") === "is_normal_fontsize") {
         $("head").append($("<link rel=\"stylesheet\" href=\"" + conf.assets + "css/a11y-fontsize.css\" type=\"text/css\" id=\"largerFontsizeStylesheet\" />"));
         $(this).attr("id", "is_large_fontsize").addClass("active");
@@ -110,28 +110,6 @@
         eraseCookie("a11y-larger-fontsize");
         return false;
       }
-    });
-    sections = document.getElementsByTagName("section");
-    i = 0;
-    max = sections.length;
-    while (i < max) {
-      sections[i].setAttribute("tabindex", -1);
-      sections[i].className += " focusable";
-      i++;
-    }
-    if (document.location.hash) {
-      anchorUponArrival = document.location.hash;
-      setTimeout((function() {
-        $(anchorUponArrival).focus();
-      }), 100);
-    }
-    return $("a[href^=\"#\"]").click(function(event) {
-      var inPageAnchor;
-      inPageAnchor = "#" + this.href.split("#")[1];
-      setTimeout((function() {
-        $(inPageAnchor).focus();
-      }), 100);
-      return false;
     });
   };
 })(jQuery);
