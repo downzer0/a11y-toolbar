@@ -49,11 +49,11 @@
     # Prepend our toolbar to the left side of the page, right under <body>
     insert_a11y_toolbar = "<!-- a11y toolbar -->"
     insert_a11y_toolbar += "<div class=\"a11y-toolbar\">"
-    insert_a11y_toolbar += "<ul>"
-    insert_a11y_toolbar += "<li><a href=\"#\" tabindex=\"-1\" class=\"a11y-toggle-contrast toggle-contrast\" id=\"is_normal_contrast\" accesskey=\"C\" title=\"Toggle High Contrast\"><span class=\"offscreen\">Toggle High Contrast</span><i class=\"icon icon-adjust\"></i></a></li>"
-    insert_a11y_toolbar += "<li><a href=\"#\" tabindex=\"-1\" class=\"a11y-toggle-grayscale toggle-grayscale\" id=\"is_normal_color\" accesskey=\"S\" title=\"Toggle Grayscale\"><span class=\"offscreen\">Toggle Grayscale</span><i class=\"icon icon-tint\"></i></a></li>"
-    insert_a11y_toolbar += "<li><a href=\"#\" tabindex=\"-1\" class=\"a11y-toggle-fontsize toggle-fontsize\" id=\"is_normal_fontsize\" accesskey=\"F\" title=\"Toggle Font Size\"><span class=\"offscreen\">Toggle Font Size</span><i class=\"icon icon-font\"></i></a></li>"
-    insert_a11y_toolbar += "</ul>"
+    insert_a11y_toolbar += "<menu type=\"toolbar\" role=\"menu\">"
+    insert_a11y_toolbar += "<li role=\"presentation\"><button type=\"button\" href=\"#\" tabindex=\"-1\" class=\"a11y-toggle-contrast toggle-contrast\" id=\"is_normal_contrast\" accesskey=\"C\" title=\"Toggle High Contrast\"><span class=\"offscreen\">Toggle High Contrast</span><i class=\"icon icon-adjust\"></i></button></li>"
+    insert_a11y_toolbar += "<li role=\"presentation\"><button type=\"button\" class=\"a11y-toggle-grayscale toggle-grayscale\" id=\"is_normal_color\" accesskey=\"S\" title=\"Toggle Grayscale\"><span class=\"offscreen\">Toggle Grayscale</span><i class=\"icon icon-tint\"></i></a></li>"
+    insert_a11y_toolbar += "<li role=\"presentation\"><button type=\"button\" class=\"a11y-toggle-fontsize toggle-fontsize\" id=\"is_normal_fontsize\" accesskey=\"F\" title=\"Toggle Font Size\"><span class=\"offscreen\">Toggle Font Size</span><i class=\"icon icon-font\"></i></a></li>"
+    insert_a11y_toolbar += "</menu>"
     insert_a11y_toolbar += "</div>"
     insert_a11y_toolbar += "<!-- // a11y toolbar -->"
     $(document).find("body").prepend insert_a11y_toolbar
