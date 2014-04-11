@@ -488,15 +488,6 @@ input[type=text],input[type=password],input[type=search] { border: 1px solid gre
 
 
 
-
-.a11y-toolbar .icon, .a11y-toolbar a:hover .icon {
-	display: inline-block;
-	background: url('../img/sprite.png') transparent no-repeat !important;
-	height: 16px;
-	width: 16px;
-	margin-top: 3px;
-}
-
 .a11y-toolbar a .icon-adjust, .a11y-toolbar a:hover .icon-adjust {
 	background-position: -16px 0 !important;
 }
