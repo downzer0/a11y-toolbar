@@ -42,10 +42,10 @@
       var btnClasses, insert_a11y_toolbar;
       btnClasses = conf.btnClasses.join(' ');
       insert_a11y_toolbar = "<!-- a11y toolbar -->";
-      insert_a11y_toolbar += "<menu type=\"toolbar\" role=\"menu\" class=\"" + (conf.containerClasses.join(' ')) + "\">";
-      insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-contrast toggle-contrast " + btnClasses + "\" id=\"is_normal_contrast\" accesskey=\"C\" title=\"Toggle High Contrast\"><span class=\"offscreen\">Toggle High Contrast</span><i class=\"icon icon-adjust\"></i></button>";
-      insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-grayscale toggle-grayscale " + btnClasses + " \" id=\"is_normal_color\" accesskey=\"S\" title=\"Toggle Grayscale\"><span class=\"offscreen\">Toggle Grayscale</span><i class=\"icon icon-tint\"></i></button>";
-      insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-fontsize toggle-fontsize " + btnClasses + "\" id=\"is_normal_fontsize\" accesskey=\"F\" title=\"Toggle Font Size\"><span class=\"offscreen\">Toggle Font Size</span><i class=\"icon icon-font\"></i></button>";
+      insert_a11y_toolbar += "<menu type=\"toolbar\" role=\"menu\" class=\"a11y-toolbar " + (conf.containerClasses.join(' ')) + "\" label=\"Style Selector\">";
+      insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-contrast toggle-contrast " + btnClasses + "\" id=\"is_normal_contrast\" accesskey=\"C\" title=\"Toggle High Contrast\"><span class=\"sr-only\">Toggle High Contrast</span><i class=\"icon icon-adjust\"></i></button>";
+      insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-grayscale toggle-grayscale " + btnClasses + " \" id=\"is_normal_color\" accesskey=\"S\" title=\"Toggle Grayscale\"><span class=\"sr-only\">Toggle Grayscale</span><i class=\"icon icon-tint\"></i></button>";
+      insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-fontsize toggle-fontsize " + btnClasses + "\" id=\"is_normal_fontsize\" accesskey=\"F\" title=\"Toggle Font Size\"><span class=\"sr-only\">Toggle Font Size</span><i class=\"icon icon-font\"></i></button>";
       insert_a11y_toolbar += "</menu>";
       insert_a11y_toolbar += "</div>";
       insert_a11y_toolbar += "<!-- // a11y toolbar -->";
