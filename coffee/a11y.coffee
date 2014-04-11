@@ -112,38 +112,4 @@
         eraseCookie "a11y-larger-fontsize"
         false
 
-
-    # Sets a -1 tabindex to ALL sections for .focus()-ing
-    sections = document.getElementsByTagName("section")
-    i = 0
-    max = sections.length
-
-    while i < max
-      sections[i].setAttribute "tabindex", -1
-      sections[i].className += " focusable"
-      i++
-
-    # If there is a '#' in the URL (someone linking directly to a page with an anchor), go directly to that area and focus is
-    # Thanks to WebAIM.org for this idea
-    if document.location.hash
-      anchorUponArrival = document.location.hash
-      setTimeout (->
-
-        # $(anchorUponArrival).Scrollto({ duration: 1000 });
-        $(anchorUponArrival).focus()
-        return
-      ), 100
-
-    # Focuses on the correct section of the page if we're page linking
-    # Thanks to WebAIM.org for this idea
-    $("a[href^=\"#\"]").click (event) ->
-      inPageAnchor = "#" + @href.split("#")[1]
-
-      # $(inPageAnchor).ScrollTo({ duration: 1000 });
-      setTimeout (->
-        $(inPageAnchor).focus()
-        return
-      ), 100
-      false
-
 ) jQuery

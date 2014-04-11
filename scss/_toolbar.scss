@@ -1,14 +1,14 @@
 .a11y-toolbar{
   position: fixed;
-  z-index: 99999;
+  z-index: $a11y-z-index;
   top: 43%;
   left: 0;
   menu {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-top-right-radius: $a11y-border-radius;
+    border-bottom-right-radius: $a11y-border-radius;
     li {
       display: block;
       height: 24px;
@@ -19,22 +19,22 @@
     display: block;
     height: 24px;
     width: 24px;
-    background: #e2e2e2;
+    background: $a11y-btn-color;
     text-align: center;
     line-height: 24px;
     border-top: 1px solid #f5f5f5;
     border-bottom: 1px solid #d2d2d2;
     &:hover,
     &:focus {
-      background: #0066cc;
+      background: $a11y-btn-color;
     }
     &.active {
-      background: #0066cc;
+      background: $a11y-btn-color-active;
     }
   }
   .icon {
     display: inline-block;
-    background: url('../img/sprite.png') transparent no-repeat;
+    background: url($a11y-sprite-path) transparent no-repeat;
     height: 16px;
     width: 16px;
     margin-top: 3px;
@@ -62,13 +62,10 @@
   .icon-white.icon-font {
     background-position: -16px -32px;
   }
-  .offscreen {
-    display: none;
-  }
   li:first-child button {
-    border-top-right-radius: 4px;
+    border-top-right-radius: $a11y-border-radius;
   }
   li:last-child button {
-    border-bottom-right-radius: 4px;
+    border-bottom-right-radius: $a11y-border-radius;
   }
 }
