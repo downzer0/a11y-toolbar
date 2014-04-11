@@ -4,29 +4,34 @@
   top: 43%;
   left: 0;
   menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     border-top-right-radius: $a11y-border-radius;
     border-bottom-right-radius: $a11y-border-radius;
   }
-  button {
-    display: block;
-    height: 24px;
-    width: 24px;
-    background: $a11y-btn-color;
-    text-align: center;
-    line-height: 24px;
-    border-top: 1px solid #f5f5f5;
-    border-bottom: 1px solid #d2d2d2;
-    &:hover,
-    &:focus {
+  @if $a11y-include-btn-styles{
+    button {
+      display: block;
+      height: 24px;
+      width: 24px;
       background: $a11y-btn-color;
+      text-align: center;
+      line-height: 24px;
+      border-top: 1px solid #f5f5f5;
+      border-bottom: 1px solid #d2d2d2;
+      &:hover,
+      &:focus {
+        background: $a11y-btn-color;
+      }
+      &.active {
+        background: $a11y-btn-color-active;
+      }
+      & :first-child {
+        border-top-right-radius: $a11y-border-radius;
+      }
+      &:last-child{
+        border-bottom-right-radius: $a11y-border-radius;
+      }
     }
-    &.active {
-      background: $a11y-btn-color-active;
-    }
-  }
+  }//end if
   .icon {
     display: inline-block;
     background: url($a11y-sprite-path) transparent no-repeat;
@@ -57,12 +62,7 @@
   .icon-white.icon-font {
     background-position: -16px -32px;
   }
-  li:first-child button {
-    border-top-right-radius: $a11y-border-radius;
-  }
-  li:last-child button {
-    border-bottom-right-radius: $a11y-border-radius;
-  }
+
   @if $a11y-sr-only-class {
     .sr-only{
       position: absolute;
