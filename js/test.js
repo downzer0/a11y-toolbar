@@ -122,7 +122,7 @@ a11yToolbar = function(settings) {
 module.exports = a11yToolbar;
 
 
-},{"./cookiehandler.coffee":2,"./icon.html":3,"./toolbar.html":4}],2:[function(require,module,exports){
+},{"./cookiehandler.coffee":2,"./icon.html":3,"./toolbar.html":5}],2:[function(require,module,exports){
 module.exports = {
   create: function(name, value, days) {
     var date, expires;
@@ -162,9 +162,21 @@ module.exports = {
 module.exports = '<span class="sr-only"></span><span aria-hidden="true"></span>\n' +
     '';
 },{}],4:[function(require,module,exports){
+var $, a11yToolbar;
+
+$ = (window.jQuery);
+
+a11yToolbar = require('./a11y.coffee');
+
+$(function() {
+  return a11yToolbar();
+});
+
+
+},{"./a11y.coffee":1}],5:[function(require,module,exports){
 module.exports = '<!-- a11y toolbar -->\n' +
     '<menu type="toolbar" role="menu" class="a11y-toolbar" label="Style Selector">\n' +
     '</menu>\n' +
     '<!-- // a11y toolbar -->\n' +
     '';
-},{}]},{},[1])
+},{}]},{},[4])

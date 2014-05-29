@@ -1,0 +1,39 @@
+{
+  "name": "a11y",
+  "version": "1.0.0-alpha",
+  "description": "Forked version of the a11y toolbar",
+  "main": "coffee/a11y.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kalamuna/a11y.git"
+  },
+  "author": "Kalamuna LLC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalamuna/a11y/issues"
+  },
+  "browserify": {
+    "transform": [
+      "coffeeify",
+      "html2js-browserify",
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery"
+  },
+  "homepage": "https://github.com/kalamuna/a11y",
+  "devDependencies": {
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt": "^0.4.5",
+    "grunt-sass": "^0.12.1",
+    "coffeeify": "^0.6.0",
+    "browserify": "^4.1.6",
+    "browserify-shim": "^3.5.0",
+    "grunt-browserify": "^2.1.0"
+  }
+}

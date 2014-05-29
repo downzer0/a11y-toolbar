@@ -1,0 +1,31 @@
+{
+  "name": "a11y-toolbar",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kalamuna/a11y-toolbar",
+  "authors": [
+    "Steven Bassett <steven.j.bassett@gmail.com>"
+  ],
+  "description": "Port of A11Y Toolbar that has been expaned on a bit.",
+  "main": [
+    "js/a11y.js",
+    "css/a11y-contrast.css",
+    "css/a11y-desaturate.css",
+    "css/a11y-fontsize.css",
+    "css/a11y.css",
+    "scss/a11y-contrast.scss",
+    "scss/a11y-desaturate.scss",
+    "scss/a11y-fontsize.scss",
+    "scss/a11y.scss",
+    "img/a11y-sprite.png"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "coffee",
+    "Gruntfile.coffee"
+  ]
+}
