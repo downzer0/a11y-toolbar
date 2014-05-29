@@ -1,7 +1,7 @@
 $ = require('jquery')
 
 
-module.exports = (settings) ->
+a11yToolbar = (settings) ->
   DEFAULTS =
     assets: "/wp-content/themes/ui2011/a11y/"
     containerClasses: ["a11y-toolbar" ]
@@ -120,3 +120,4 @@ module.exports = (settings) ->
       $(this).attr("id", "is_normal_fontsize").removeClass "active"
       cookie.erase "a11y-larger-fontsize"
       false
+module.exports = a11yToolbar

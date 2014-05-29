@@ -1,9 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var $;
+var $, a11yToolbar;
 
 $ = (window.jQuery);
 
-module.exports = function(settings) {
+a11yToolbar = function(settings) {
   var DEFAULTS, conf, construcToolbar, cookie, tb;
   DEFAULTS = {
     assets: "/wp-content/themes/ui2011/a11y/",
@@ -118,6 +118,8 @@ module.exports = function(settings) {
     }
   });
 };
+
+module.exports = a11yToolbar;
 
 
 },{"./cookiehandler.coffee":2,"./icon.html":3,"./toolbar.html":5}],2:[function(require,module,exports){
