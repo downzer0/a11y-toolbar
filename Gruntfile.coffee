@@ -5,9 +5,10 @@ module.exports = (grunt) ->
       "css/a11y-contrast.css" : "scss/a11y-contrast.scss"
       "css/a11y-fontsize.css" : "scss/a11y-fontsize.scss"
       "css/a11y.css" : "scss/a11y.scss"
-    coffee:
+    browserify:
       options:
-        bare: true
+        transforms: ['coffeeify','browserify-shim']
+
       dist:
         files:
           'js/a11y.js' : 'coffee/a11y.coffee'
@@ -20,13 +21,13 @@ module.exports = (grunt) ->
         files: "<%=scssFiles %>"
         options:
           outputStyle: "compressed"
-  grunt.loadNpmTasks "grunt-contrib-coffee"
+  grunt.loadNpmTasks "grunt-browserify"
   grunt.loadNpmTasks "grunt-contrib-uglify"
   grunt.loadNpmTasks "grunt-contrib-watch"
   grunt.loadNpmTasks "grunt-sass"
 
   grunt.registerTask "default", [
-    "coffee"
+    "browserify"
     "uglify"
     "sass"
   ]
