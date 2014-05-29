@@ -12,6 +12,7 @@ module.exports = (grunt) ->
       dist:
         files:
           'js/a11y.js' : 'coffee/a11y.coffee'
+          'js/test.js' : 'coffee/test.coffee'
     uglify:
       dist:
         files:
