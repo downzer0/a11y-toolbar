@@ -5,10 +5,8 @@ $ = (window.jQuery);
 
 icon = require('./icon.html');
 
-console.log('icon');
-
 module.exports = function(settings) {
-  var DEFAULTS, conf, construcToolbar, createCookie, eraseCookie, readCookie;
+  var DEFAULTS, conf, construcToolbar, cookie;
   DEFAULTS = {
     assets: "/wp-content/themes/ui2011/a11y/",
     containerClasses: ["a11y-toolbar"],
@@ -21,49 +19,10 @@ module.exports = function(settings) {
     }
   };
   conf = $.extend({}, DEFAULTS, settings);
-  createCookie = function(name, value, days) {
-    var date, expires;
-    if (days) {
-      date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toGMTString();
-    } else {
-      expires = "";
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-  };
-  readCookie = function(name) {
-    var c, ca, i, nameEQ;
-    nameEQ = name + "=";
-    ca = document.cookie.split(";");
-    i = 0;
-    while (i < ca.length) {
-      c = ca[i];
-      while (c.charAt(0) === " ") {
-        c = c.substring(1, c.length);
-      }
-      if (c.indexOf(nameEQ) === 0) {
-        return c.substring(nameEQ.length, c.length);
-      }
-      i++;
-    }
-    return null;
-  };
-  eraseCookie = function(name) {
-    createCookie(name, "");
-  };
+  cookie = require('./cookiehandler.coffee');
   construcToolbar = function(conf) {
-    var btnClasses, insert_a11y_toolbar;
-    btnClasses = conf.btnClasses.join(' ');
-    insert_a11y_toolbar = "<!-- a11y toolbar -->";
-    insert_a11y_toolbar += "<menu type=\"toolbar\" role=\"menu\" class=\"a11y-toolbar " + (conf.containerClasses.join(' ')) + "\" label=\"Style Selector\">";
-    insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-contrast toggle-contrast " + btnClasses + "\" id=\"is_normal_contrast\" accesskey=\"C\" title=\"Toggle High Contrast\"><span class=\"sr-only\">Toggle High Contrast</span><i class=\"icon icon-adjust\"></i></button>";
-    insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-grayscale toggle-grayscale " + btnClasses + " \" id=\"is_normal_color\" accesskey=\"S\" title=\"Toggle Grayscale\"><span class=\"sr-only\">Toggle Grayscale</span><i class=\"icon icon-tint\"></i></button>";
-    insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-fontsize toggle-fontsize " + btnClasses + "\" id=\"is_normal_fontsize\" accesskey=\"F\" title=\"Toggle Font Size\"><span class=\"sr-only\">Toggle Font Size</span><i class=\"icon icon-font\"></i></button>";
-    insert_a11y_toolbar += "</menu>";
-    insert_a11y_toolbar += "</div>";
-    insert_a11y_toolbar += "<!-- // a11y toolbar -->";
-    return insert_a11y_toolbar;
+    var btnClasses;
+    return btnClasses = conf.btnClasses.join(' ');
   };
   $(document).find("body").prepend(construcToolbar(conf));
   if (readCookie("a11y-desaturated")) {
@@ -123,7 +82,43 @@ module.exports = function(settings) {
 };
 
 
-},{"./icon.html":2}],2:[function(require,module,exports){
+},{"./cookiehandler.coffee":2,"./icon.html":3}],2:[function(require,module,exports){
+module.exports = {
+  create: function(name, value, days) {
+    var date, expires;
+    if (days) {
+      date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toGMTString();
+    } else {
+      expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+  },
+  read: function(name) {
+    var c, ca, i, nameEQ;
+    nameEQ = name + "=";
+    ca = document.cookie.split(";");
+    i = 0;
+    while (i < ca.length) {
+      c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) === 0) {
+        return c.substring(nameEQ.length, c.length);
+      }
+      i++;
+    }
+    return null;
+  },
+  erase: function(name) {
+    return createCookie(name, "");
+  }
+};
+
+
+},{}],3:[function(require,module,exports){
 module.exports = '<span class="sr-only"></span><span></span>\n' +
     '';
 },{}]},{},[1])

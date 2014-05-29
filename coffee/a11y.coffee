@@ -1,6 +1,6 @@
 $ = require('jquery')
-icon = require('./icon.html')
-console.log('icon')
+
+
 module.exports = (settings) ->
   DEFAULTS =
     assets: "/wp-content/themes/ui2011/a11y/"
@@ -8,55 +8,65 @@ module.exports = (settings) ->
     btnClasses: []
     iconFont: {
       base: 'fa'
-      font: 'fa-font'
+      fontsize: 'fa-font'
       contrast: 'fa-adjust'
-      tint: 'fa-tint'
+      grayscale: 'fa-tint'
+    }
+    btnAttrs: {
+      contrast: {
+        id: 'is_normal_contrast'
+        class: 'a11y-toggle-contrast toggle-contrast'
+        accesskey:'C'
+        title: 'Toggle High Contrast'
+        'data-target': 'css/a11y-contrast.css'
+      }
+      grayscale: {
+        id: 'is_normal_color'
+        class: 'a11y-toggle-grayscale toggle-grayscale'
+        accesskey:'S'
+        title: 'Toggle Grayscale'
+        'data-target': 'css/a11y-desaturate.css'
+      }
+      #<button type="button" class="a11y-toggle-fontsize toggle-fontsize #{ btnClasses }" id="is_normal_fontsize" accesskey="F" title="Toggle Font Size"></button>
+      fontsize: {
+        id: 'is_normal_fontsize'
+        class: 'a11y-toggle-fontsize toggle-fontsize'
+        accesskey:'S'
+        title: 'Toggle Font Size'
+        'data-target': 'a11y-larger-fontsize'
+      }
     }
   conf = $.extend({}, DEFAULTS, settings )
-  # Cookie handler, non-jQuery style
-  createCookie = (name, value, days) ->
-    if days
-      date = new Date()
-      date.setTime date.getTime() + (days * 24 * 60 * 60 * 1000)
-      expires = "; expires=" + date.toGMTString()
-    else
-      expires = ""
-    document.cookie = name + "=" + value + expires + "; path=/"
-    return
-  readCookie = (name) ->
-    nameEQ = name + "="
-    ca = document.cookie.split(";")
-    i = 0
+  cookie = require('./cookiehandler.coffee')
 
-    while i < ca.length
-      c = ca[i]
-      c = c.substring(1, c.length)  while c.charAt(0) is " "
-      return c.substring(nameEQ.length, c.length)  if c.indexOf(nameEQ) is 0
-      i++
-    null
-  eraseCookie = (name) ->
-
-    # createCookie(name, "", -1);
-    createCookie name, ""
-    return
 
   construcToolbar = (conf) ->
-    # Prepend our toolbar to the left side of the page, right under <body>
-    btnClasses = conf.btnClasses.join(' ')
-    insert_a11y_toolbar = "<!-- a11y toolbar -->"
-    insert_a11y_toolbar += "<menu type=\"toolbar\" role=\"menu\" class=\"a11y-toolbar #{conf.containerClasses.join(' ')}\" label=\"Style Selector\">"
-    insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-contrast toggle-contrast #{ btnClasses }\" id=\"is_normal_contrast\" accesskey=\"C\" title=\"Toggle High Contrast\"><span class=\"sr-only\">Toggle High Contrast</span><i class=\"icon icon-adjust\"></i></button>"
-    insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-grayscale toggle-grayscale #{ btnClasses } \" id=\"is_normal_color\" accesskey=\"S\" title=\"Toggle Grayscale\"><span class=\"sr-only\">Toggle Grayscale</span><i class=\"icon icon-tint\"></i></button>"
-    insert_a11y_toolbar += "<button type=\"button\" class=\"a11y-toggle-fontsize toggle-fontsize #{ btnClasses }\" id=\"is_normal_fontsize\" accesskey=\"F\" title=\"Toggle Font Size\"><span class=\"sr-only\">Toggle Font Size</span><i class=\"icon icon-font\"></i></button>"
-    insert_a11y_toolbar += "</menu>"
-    insert_a11y_toolbar += "</div>"
-    insert_a11y_toolbar += "<!-- // a11y toolbar -->"
-    return insert_a11y_toolbar
+
+    toolbar = $(require('./toolbar.html'))
+    for btnAtr in conf.btnAttributes
+      btn = $('<button/>')
+      btnAtr.class += conf.btnClasses.join(' ')
+      btn.attr(
+        btnAtr
+      )
+      bntIcon = $(require('./icon.html'))
+      btnIcon.find('.sr-only')
+        .text(btnAtr.title)
+        .next('span[aria-hidden="true"]')
+        .attr(
+          'class': "#{conf.iconfont.base} #{conf.iconfont[btnAtr]}"
+        )
+      toolbar.append(btn)
+
+    console.log(toolbar)
+
+
+
 
   $(document).find("body").prepend construcToolbar(conf)
 
   # Saturation handler
-  if readCookie("a11y-desaturated")
+  if cookie.read("a11y-desaturated")
     $("head").append $("<link rel=\"stylesheet\" href=\"#{conf.assets}css/a11y-desaturate.css\" type=\"text/css\" id=\"desaturatedStylesheet\" />")
     $("#is_normal_color").attr("id", "is_grayscale").addClass "active"
   $(".toggle-grayscale").on "click", ->
