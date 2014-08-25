@@ -1,6 +1,6 @@
 /*
  * Chris Rodriguez
- * chris@inathought.com
+ * hello@chrisrodriguez.me
 */
 
 // Cookie handler, non-jQuery style
@@ -30,6 +30,9 @@ function eraseCookie(name) {
 	createCookie(name, "");
 }
 
+// Configure
+var web_directory = '/url/to/folder/';
+
 // Prepend our jump-links to the very top of the page, right under <body>
 var insert_a11y_links = '<!-- Accessibility links -->';
 insert_a11y_links += '<a class="a11y-jump-link" href="#maincontent">Skip to main content</a>';
@@ -40,9 +43,9 @@ insert_a11y_links += '<!-- // Accessibility links -->';
 var insert_a11y_toolbar = '<!-- a11y toolbar -->';
 insert_a11y_toolbar += '<div class="a11y-toolbar">';
 insert_a11y_toolbar += '<ul>';
-insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-contrast toggle-contrast" id="is_normal_contrast" accesskey="C" title="Toggle High Contrast"><span class="offscreen">Toggle High Contrast</span><i class="icon icon-adjust"></i></a></li>';
-insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-grayscale toggle-grayscale" id="is_normal_color" accesskey="S" title="Toggle Grayscale"><span class="offscreen">Toggle Grayscale</span><i class="icon icon-tint"></i></a></li>';
-insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-fontsize toggle-fontsize" id="is_normal_fontsize" accesskey="F" title="Toggle Font Size"><span class="offscreen">Toggle Font Size</span><i class="icon icon-font"></i></a></li>';
+insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-contrast toggle-contrast" id="is_normal_contrast" title="Toggle High Contrast"><span class="offscreen">Toggle High Contrast</span><span class="icon icon-contrast"></span></a></li>';
+insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-grayscale toggle-grayscale" id="is_normal_color" title="Toggle Grayscale"><span class="offscreen">Toggle Grayscale</span><span class="icon icon-saturation"></span></a></li>';
+insert_a11y_toolbar += '<li><a href="#" tabindex="-1" class="a11y-toggle-fontsize toggle-fontsize" id="is_normal_fontsize" title="Toggle Font Size"><span class="offscreen">Toggle Font Size</span><span class="icon icon-fontsize"></span></a></li>';
 insert_a11y_toolbar += '</ul>';
 insert_a11y_toolbar += '</div>';
 insert_a11y_toolbar += '<!-- // a11y toolbar -->';
@@ -52,13 +55,13 @@ $(document).find('body').prepend(insert_a11y_links);
 
 // Saturation handler
 if (readCookie('a11y-desaturated')) {
-	$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
+	$('head').append($('<link rel="stylesheet" href="' + web_directory + 'a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
 	$('#is_normal_color').attr('id', 'is_grayscale').addClass('active');
 }
 
 $('.toggle-grayscale').on('click', function() {
 	if ($(this).attr('id') == "is_normal_color") {
-		$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
+		$('head').append($('<link rel="stylesheet" href="' + web_directory + 'a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
 	    $(this).attr('id', 'is_grayscale').addClass('active');
 	    createCookie('a11y-desaturated', '1');
 	    return false;
@@ -72,14 +75,14 @@ $('.toggle-grayscale').on('click', function() {
 
 // Contrast handler
 if (readCookie('a11y-high-contrast')) {
-	$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
+	$('head').append($('<link rel="stylesheet" href="' + web_directory + 'a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
 	$('#is_normal_contrast').attr('id', 'is_high_contrast').addClass('active');
 	$('.a11y-toolbar ul li a i').addClass('icon-white');
 }
 
 $('.toggle-contrast').on('click', function() {
 	if ($(this).attr('id') == "is_normal_contrast") {
-		$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
+		$('head').append($('<link rel="stylesheet" href="' + web_directory + 'a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
 	    $(this).attr('id', 'is_high_contrast').addClass('active');
 	    $(this).parent().parent().find('i').addClass('icon-white');
 	    createCookie('a11y-high-contrast', '1');
@@ -95,13 +98,13 @@ $('.toggle-contrast').on('click', function() {
 
 // Fontisze handler
 if (readCookie('a11y-larger-fontsize')) {
-	$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
+	$('head').append($('<link rel="stylesheet" href="' + web_directory + 'a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
 	$('#is_normal_fontsize').attr('id', 'is_large_fontsize').addClass('active');
 }
 
 $('.toggle-fontsize').on('click', function() {
 	if ($(this).attr('id') == "is_normal_fontsize") {
-		$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
+		$('head').append($('<link rel="stylesheet" href="' + web_directory + 'a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
 	    $(this).attr('id', 'is_large_fontsize').addClass('active');
 	    createCookie('a11y-larger-fontsize', '1');
 	    return false;
