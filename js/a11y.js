@@ -5,33 +5,33 @@
 
 // Cookie handler, non-jQuery style
 function createCookie(name, value, days) {
-	if (days) {
+    var expires = '';
+    if (days) {
         var date = new Date();
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        var expires = "; expires=" + date.toGMTString();
-	} else
-	var expires = "";
-	document.cookie = name + "=" + value + expires + "; path=/";
-}
-	
-function readCookie(name) {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(';');
-	for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-	}
-	return null;
-}
-	
-function eraseCookie(name) {
-	// createCookie(name, "", -1);
-	createCookie(name, "");
+        expires = '; expires=' + date.toGMTString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/';
 }
 
-// Configure
-var web_directory = '/url/to/folder/';
+function readCookie(name) {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length);
+        }
+        if (c.indexOf(nameEQ) === 0) {
+            return c.substring(nameEQ.length, c.length);
+        }
+    }
+    return null;
+}
+
+function eraseCookie(name) {
+    createCookie(name, '');
+}
 
 // Prepend our jump-links to the very top of the page, right under <body>
 var insert_a11y_links = '<!-- Accessibility links -->';
@@ -55,91 +55,91 @@ $(document).find('body').prepend(insert_a11y_links);
 
 // Saturation handler
 if (readCookie('a11y-desaturated')) {
-	$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
-	$('#is_normal_color').attr('id', 'is_grayscale').attr('aria-checked', 'true').addClass('active');
+    $('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
+    $('#is_normal_color').attr('id', 'is_grayscale').attr('aria-checked', 'true').addClass('active');
 }
 
 $('.toggle-grayscale').on('click', function() {
-	if ($(this).attr('id') == "is_normal_color") {
-		$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
-	    $(this).attr('id', 'is_grayscale').attr('aria-checked', 'true').addClass('active');
-	    createCookie('a11y-desaturated', '1');
-	    return false;
-	} else {
-		$('#desaturatedStylesheet').remove();
-	    $(this).attr('id', 'is_normal_color').removeAttr('aria-checked').removeClass('active');
-	    eraseCookie('a11y-desaturated');
-	    return false;
-	}
+    if ($(this).attr('id') === 'is_normal_color') {
+        $('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-desaturate.css" type="text/css" id="desaturatedStylesheet" />'));
+        $(this).attr('id', 'is_grayscale').attr('aria-checked', 'true').addClass('active');
+        createCookie('a11y-desaturated', '1');
+        return false;
+    } else {
+        $('#desaturatedStylesheet').remove();
+        $(this).attr('id', 'is_normal_color').removeAttr('aria-checked').removeClass('active');
+        eraseCookie('a11y-desaturated');
+        return false;
+    }
 });
 
 // Contrast handler
 if (readCookie('a11y-high-contrast')) {
-	$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
-	$('#is_normal_contrast').attr('id', 'is_high_contrast').attr('aria-checked', 'true').addClass('active');
-	$('.a11y-toolbar ul li a i').addClass('icon-white');
+    $('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
+    $('#is_normal_contrast').attr('id', 'is_high_contrast').attr('aria-checked', 'true').addClass('active');
+    $('.a11y-toolbar ul li a i').addClass('icon-white');
 }
 
 $('.toggle-contrast').on('click', function() {
-	if ($(this).attr('id') == "is_normal_contrast") {
-		$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
-	    $(this).attr('id', 'is_high_contrast').attr('aria-checked', 'true').addClass('active');
-	    $(this).parent().parent().find('i').addClass('icon-white');
-	    createCookie('a11y-high-contrast', '1');
-	    return false;
-	} else {
-		$('#highContrastStylesheet').remove();
-	    $(this).attr('id', 'is_normal_contrast').removeAttr('aria-checked').removeClass('active');
-	    $(this).parent().parent().find('i').removeClass('icon-white');
-	    eraseCookie('a11y-high-contrast');
-	    return false;
-	}
+    if ($(this).attr('id') === 'is_normal_contrast') {
+        $('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-contrast.css" type="text/css" id="highContrastStylesheet" />'));
+        $(this).attr('id', 'is_high_contrast').attr('aria-checked', 'true').addClass('active');
+        $(this).parent().parent().find('i').addClass('icon-white');
+        createCookie('a11y-high-contrast', '1');
+        return false;
+    } else {
+        $('#highContrastStylesheet').remove();
+        $(this).attr('id', 'is_normal_contrast').removeAttr('aria-checked').removeClass('active');
+        $(this).parent().parent().find('i').removeClass('icon-white');
+        eraseCookie('a11y-high-contrast');
+        return false;
+    }
 });
 
 // Fontisze handler
 if (readCookie('a11y-larger-fontsize')) {
-	$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
-	$('#is_normal_fontsize').attr('id', 'is_large_fontsize').attr('aria-checked', 'true').addClass('active');
+    $('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
+    $('#is_normal_fontsize').attr('id', 'is_large_fontsize').attr('aria-checked', 'true').addClass('active');
 }
 
 $('.toggle-fontsize').on('click', function() {
-	if ($(this).attr('id') == "is_normal_fontsize") {
-		$('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
-	    $(this).attr('id', 'is_large_fontsize').attr('aria-checked', 'true').addClass('active');
-	    createCookie('a11y-larger-fontsize', '1');
-	    return false;
-	} else {
-		$('#largerFontsizeStylesheet').remove();
-	    $(this).attr('id', 'is_normal_fontsize').removeAttr('aria-checked').removeClass('active');
-	    eraseCookie('a11y-larger-fontsize');
-	    return false;
-	}
+    if ($(this).attr('id') === 'is_normal_fontsize') {
+        $('head').append($('<link rel="stylesheet" href="/wp-content/themes/ui2011/a11y/css/a11y-fontsize.css" type="text/css" id="largerFontsizeStylesheet" />'));
+        $(this).attr('id', 'is_large_fontsize').attr('aria-checked', 'true').addClass('active');
+        createCookie('a11y-larger-fontsize', '1');
+        return false;
+    } else {
+        $('#largerFontsizeStylesheet').remove();
+        $(this).attr('id', 'is_normal_fontsize').removeAttr('aria-checked').removeClass('active');
+        eraseCookie('a11y-larger-fontsize');
+        return false;
+    }
 });
 
 // Sets a -1 tabindex to ALL sections for .focus()-ing
-var sections = document.getElementsByTagName("section");
+var sections = document.getElementsByTagName('section');
 for (var i = 0, max = sections.length; i < max; i++) {
-	sections[i].setAttribute('tabindex', -1);
-	sections[i].className += ' focusable';
+    sections[i].setAttribute('tabindex', -1);
+    sections[i].className += ' focusable';
 }
 
 // If there is a '#' in the URL (someone linking directly to a page with an anchor), go directly to that area and focus is
 // Thanks to WebAIM.org for this idea
 if (document.location.hash) {
-	var anchorUponArrival = document.location.hash;
-	setTimeout(function() {
-		// $(anchorUponArrival).Scrollto({ duration: 1000 });
-		$(anchorUponArrival).focus();
-	}, 100);
+    var anchorUponArrival = document.location.hash;
+    setTimeout(function() {
+        // $(anchorUponArrival).Scrollto({ duration: 1000 });
+        $(anchorUponArrival).focus();
+    }, 100);
 }
 
 // Focuses on the correct section of the page if we're page linking
 // Thanks to WebAIM.org for this idea
-$('a[href^="#"]').click(function(event) {
-	var inPageAnchor = "#" + this.href.split('#')[1];
-	// $(inPageAnchor).ScrollTo({ duration: 1000 });
-	setTimeout(function() {
-		$(inPageAnchor).focus();
-	}, 100);
-	return false;
+$('a[href^="#"]').click(function() {
+    var inPageAnchor = '#' + this.href.split('#')[1];
+    // $(inPageAnchor).ScrollTo({ duration: 1000 });
+    setTimeout(function() {
+        $(inPageAnchor).focus();
+    }, 100);
+    return false;
 });
