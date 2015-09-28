@@ -1,6 +1,6 @@
 /*
  * Chris Rodriguez
- * hello@chrisrodriguez.me
+ * github@chrisrodriguez.me
 */
 
 // Cookie handler, non-jQuery style
