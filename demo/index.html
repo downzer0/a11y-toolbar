@@ -21,7 +21,10 @@
     <script src="../lib/js/afontgarde.js"></script>
     <script>
     AFontGarde('a11y', {
-        glyphs: '\uE600\uE601\uE602'
+        glyphs: '\uE600\uE601\uE602',
+        success: function() { console.log( 'success' ); },
+        error: function() { console.log( 'timeout error' ); },
+        timeout: 10000
     });
     </script>
 </body>

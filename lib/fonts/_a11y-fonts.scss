@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'a11y';
-    src: url('../fonts/a11y.ttf') format('truetype'),
-         url('../fonts/a11y.woff2') format('woff2'),
-         url('../fonts/a11y.svg#a11y') format('svg');
+    src: url('../fonts/a11y.eot') format('embedded-opentype'),
+         url('../fonts/a11y.ttf') format('truetype'),
+         url('../fonts/a11y.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
