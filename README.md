@@ -6,6 +6,16 @@
 * Doesn't change existing site layout, but will enhance readability when used
 * Semantic; assistive technology and keyboard accessible
 
+## Accessible fallbacks
+
+Thanks to The Filament Group's [exploration on fallback options](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html), I've implemented their A Font Garde toolkit which provides graceful degredation to browsers who don't support `@font-face` or in cases where the font stylesheets or fonts themselves don't load.
+
+The implementation relies on a small bit of additional markup, a customized Modernizr to detect font-face capabilities, and two small JS and CSS files.
+
+### A Font Garde
+
+The toolkit works by trying to load the font icons at page load. If the test passes, the name of the font is added to the `html` tag as a class. Stylesheets then render icon fonts referencing that classname. If the tests fail, the font icons don't load and instead fallback to either a glyph/image or text.
+
 ## Known issues (things in-progress)
 
 * Only Firefox and Webkit browsers can desaturate
@@ -16,7 +26,7 @@
 ## Todos
 
 * The JS file has fixed paths that should be edited per site.
-* Continue to explore accessible fallback options (that aren't necessarily image-based) for when the stylesheet isn't available.
+* ~~Continue to explore accessible fallback options (that aren't necessarily image-based) for when the stylesheet isn't available.~~
 
 ## Pull Requests and contributions
 
