@@ -128,7 +128,6 @@ for (var i = 0, max = sections.length; i < max; i++) {
 if (document.location.hash) {
     var anchorUponArrival = document.location.hash;
     setTimeout(function() {
-        // $(anchorUponArrival).Scrollto({ duration: 1000 });
         $(anchorUponArrival).focus();
     }, 100);
 }
@@ -137,7 +136,6 @@ if (document.location.hash) {
 // Thanks to WebAIM.org for this idea
 $('a[href^="#"]').click(function() {
     var inPageAnchor = '#' + this.href.split('#')[1];
-    // $(inPageAnchor).ScrollTo({ duration: 1000 });
     setTimeout(function() {
         $(inPageAnchor).focus();
     }, 100);
