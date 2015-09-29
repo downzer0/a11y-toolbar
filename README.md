@@ -11,6 +11,7 @@
 * Only Firefox and Webkit browsers can desaturate
 * Sometimes the styles of a website might take precedence over styles for the toolbar; I'm trying to avoid using `!importants`
 * There's an edge-case issue where users who specify their own fonts or disallow sites to use their respective stylesheets, the icon fonts won't load. I'm working on an accessible fallback approach taking cues from [The Filament Group](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html).
+* There is a [known bug with Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=760436) and local font downloads; this example won't work locally, but will on a server.
 
 ## Todos
 
