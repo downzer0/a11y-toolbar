@@ -1,34 +1,59 @@
 @font-face {
-	font-family: 'a11y';
-	src:url('../fonts/a11y.eot');
-	src:url('../fonts/a11y.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/a11y.ttf') format('truetype'),
-		url('../fonts/a11y.woff') format('woff'),
-		url('../fonts/a11y.svg#a11y') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'a11y';
+    src: url('../fonts/a11y.ttf') format('truetype'),
+         url('../fonts/a11y.woff2') format('woff2'),
+         url('../fonts/a11y.svg#a11y') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
-	font-family: 'a11y';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+// Browsers that support @font-face and/or load the fonts
+.icon-fallback-img .icon:before {
+    font-family: 'a11y';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-saturation:before {
-	content: "\e600";
+// Fallback SVG images for browsers that do not support @font-face or can't load the CSS
+.icon-fallback-img .icon-saturation {
+    width: 1em;
+    height: 1em;
+    background-image: url('../fonts/SVG/icon-saturation.svg');
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
 }
-.icon-contrast:before {
-	content: "\e601";
+
+.icon-fallback-img .icon-contrast {
+    width: 1em;
+    height: 1em;
+    background-image: url('../fonts/SVG/icon-contrast.svg');
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
 }
-.icon-fontsize:before {
-	content: "\e602";
+
+.icon-fallback-img .icon-fontsize {
+    width: 1em;
+    height: 1em;
+    background-image: url('../fonts/SVG/icon-fontsize.svg');
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+}
+
+// Has support
+.a11y .icon-fallback-img .icon-saturation:before {
+    content: "\e600";
+}
+
+.a11y .icon-fallback-img .icon-contrast:before {
+    content: "\e601";
+}
+
+.a11y .icon-fallback-img .icon-fontsize:before {
+    content: "\e602";
 }
