@@ -1,0 +1,70 @@
+/* ----------------
+ * FONT ICONS
+ * ------------- */
+@font-face {
+  font-family: 'a11y';
+  src: url("../fonts/a11y.eot");
+  src: url("../fonts/a11y.eot?#iefix") format("embedded-opentype"), url("../fonts/a11y.ttf") format("truetype"), url("../fonts/a11y.woff") format("woff"), url("../fonts/a11y.svg#a11y") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'a11y';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-saturation:before {
+  content: "\e600"; }
+
+.icon-contrast:before {
+  content: "\e601"; }
+
+.icon-fontsize:before {
+  content: "\e602"; }
+
+/* ----------------
+ * TOOLBAR
+ * ------------- */
+.a11y-toolbar {
+  position: fixed;
+  left: 0;
+  top: 45%;
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .a11y-toolbar .a11y-item {
+    display: block; }
+    .a11y-toolbar .a11y-item .a11y-control {
+      border: 0;
+      border-radius: 0;
+      background: #f0f0f0;
+      padding: 10px 15px;
+      font-size: 16px;
+      text-align: center;
+      color: #121212;
+      cursor: pointer; }
+      .a11y-toolbar .a11y-item .a11y-control:hover,
+      .a11y-toolbar .a11y-item .a11y-control:focus {
+        background: #a0a0a0;
+        color: white; }
+      .a11y-toolbar .a11y-item .a11y-control.is-active {
+        background: #0080ff;
+        color: white; }
+    .a11y-toolbar .a11y-item:first-of-type .a11y-control {
+      border-top-right-radius: 5px; }
+    .a11y-toolbar .a11y-item:last-of-type .a11y-control {
+      border-bottom-right-radius: 5px; }
+
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px); }

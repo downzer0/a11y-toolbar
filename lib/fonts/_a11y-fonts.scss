@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'a11y';
-	src:url('a11y.eot');
-	src:url('a11y.eot?#iefix') format('embedded-opentype'),
-		url('a11y.ttf') format('truetype'),
-		url('a11y.woff') format('woff'),
-		url('a11y.svg#a11y') format('svg');
+	src:url('../fonts/a11y.eot');
+	src:url('../fonts/a11y.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/a11y.ttf') format('truetype'),
+		url('../fonts/a11y.woff') format('woff'),
+		url('../fonts/a11y.svg#a11y') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,12 +23,12 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-icon-saturation:before {
+.icon-saturation:before {
 	content: "\e600";
 }
-.icon-icon-contrast:before {
+.icon-contrast:before {
 	content: "\e601";
 }
-.icon-icon-fontsize:before {
+.icon-fontsize:before {
 	content: "\e602";
 }

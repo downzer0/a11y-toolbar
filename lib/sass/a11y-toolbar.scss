@@ -1,0 +1,85 @@
+/* ----------------
+ * FONT ICONS
+ * ------------- */
+
+ @import '../fonts/a11y-fonts';
+
+// ----------------
+// VARIABLES
+// ----------------
+
+$body-baseline:             10px;
+$body-font-size:            16px;
+$body-background:           rgb(240,240,240);
+$base-font-color:           rgb(18,18,18);
+$light-font-color:          rgb(74,74,74);
+$hover-background:          rgb(160,160,160);
+$hover-foreground:          rgb(255,255,255);
+$active-background:         rgb(0,128,255);
+$active-foreground:         rgb(255,255,255);
+
+$toolbar-background:        $body-background;
+$toolbar-foreground:        $base-font-color;
+$toolbar-font-size:         $body-font-size;
+$toolbar-item-padding:      $body-baseline;
+$toolbar-border-radius:     ($body-baseline / 2);
+
+/* ----------------
+ * TOOLBAR
+ * ------------- */
+
+.a11y-toolbar {
+    position: fixed;
+    left: 0;
+    top: 45%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    .a11y-item {
+        display: block;
+
+        .a11y-control {
+            border: 0;
+            border-radius: 0;
+            background: $toolbar-background;
+            padding: $toolbar-item-padding ($toolbar-item-padding * 1.5);
+            font-size: $toolbar-font-size;
+            text-align: center;
+            color: $toolbar-foreground;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                background: $hover-background;
+                color: $hover-foreground;
+            }
+
+            &.is-active {
+                background: $active-background;
+                color: $active-foreground;
+            }
+        }
+
+        &:first-of-type {
+
+            .a11y-control {
+                border-top-right-radius: $toolbar-border-radius;
+            }
+        }
+
+        &:last-of-type {
+
+            .a11y-control {
+                border-bottom-right-radius: $toolbar-border-radius;
+            }
+        }
+    }
+}
+
+.sr-only {
+    position: absolute;
+    height: 1px; width: 1px; 
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
