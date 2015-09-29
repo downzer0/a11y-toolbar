@@ -9,15 +9,24 @@
 ## Known issues (things in-progress)
 
 * Only Firefox and Webkit browsers can desaturate
-* ~~There are tiny shifts in the sizes of the icons when the font size is increased~~
-* Sometimes the styles of a website might take precedence over styles for the toolbar
-* The skip link currently looks for a specific ID; I'd like to make it more relative, perhaps by skipping to HTML5's `role='main'` instead
-
+* Sometimes the styles of a website might take precedence over styles for the toolbar; I'm trying to avoid using `!importants`
+* There's an edge-case issue where users who specify their own fonts or disallow sites to use their respective stylesheets, the icon fonts won't load. I'm working on an accessible fallback approach taking cues from [The Filament Group](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html).
 
 ## Todos
 
-* Skip links are currently `display: none`, which hides them from screen readers. Make them off-screen instead so they can be used. (Thanks Joe)
-* JS files must be edited per domain, but I'm planning on making these "settings" externalized.
+* The JS file has fixed paths that should be edited per site.
+* Continue to explore accessible fallback options (that aren't necessarily image-based) for when the stylesheet isn't available.
+
+## Pull Requests and contributions
+
+Contributions are welcome! Please submit a pull request to make this plugin better. And thank you in advance!
+
+### Contributors
+
+* [Chris Rodriguez (author)](https://github.com/clrux)
+* [Patrick H. Lauke](https://github.com/patrickhlauke)
+* [Steven Bassett](https://github.com/bassettsj)
+* [XhmikosR](https://github.com/XhmikosR)
 
 ## License
 
