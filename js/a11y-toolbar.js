@@ -125,7 +125,9 @@ var A11yToolbar = function() {
         },
         
         listener: function() {
-            $('.a11y-toolbar').on('click keydown', '.a11y-control', function(event) {
+            $('.a11y-toolbar')
+            
+            .on('click', '.a11y-control', function(event) {
                 var button = $(event.currentTarget),
                     mode = $(button).data('a11y');
                 
@@ -135,6 +137,27 @@ var A11yToolbar = function() {
                 } else {
                     A11yToolbar.setActiveState(button, 'true', mode);
                     A11yToolbar.createCookie(mode, 'true', 7);
+                }
+            })
+            
+            .on('keydown', '.a11y-control', function(event) {
+                var key = event.which,
+                    button = $(event.currentTarget),
+                    mode = $(button).data('a11y');
+                
+                if (key === 13 || key === 32) {
+                    
+                    if (A11yToolbar.buttonIsActive(button)) {
+                        A11yToolbar.setActiveState(button, 'false', mode);
+                        A11yToolbar.eraseCookie(mode);
+                    } else {
+                        A11yToolbar.setActiveState(button, 'true', mode);
+                        A11yToolbar.createCookie(mode, 'true', 7);
+                    }
+                    
+                    return false;
+                } else {
+                    return true;
                 }
             });
         }    
