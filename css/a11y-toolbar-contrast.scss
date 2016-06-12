@@ -1,0 +1,21 @@
+$text:              yellow;
+$background:        black;
+$hover:             #222222;
+$active:            $hover;
+
+body.has-a11y-toolbar.a11y-contrast {
+
+    background: $background !important;
+    background-color: $background !important;
+    background-image: none !important;
+    border: none;
+    color: $text !important;
+    
+    * {
+        background: $background !important;
+        background-color: $background !important;
+        background-image: none !important;
+        border: none;
+        color: $text !important;
+    }
+}

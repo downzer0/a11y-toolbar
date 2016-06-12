@@ -1,0 +1,74 @@
+$buttonText:        #222222;
+$buttonBack:        #D5D5D5;
+$buttonHover:       lighten($buttonBack, 10%);
+$buttonActive:      $buttonHover;
+$buttonRadius:      4px;
+
+/* *************************************** */
+
+body.has-a11y-toolbar {    
+    .sr {
+        position: absolute;
+    	height: 1px;
+        width: 1px;
+        clip: rect(1px 1px 1px 1px);
+        overflow: hidden;
+    }
+
+    .a11y-toolbar {
+    	position: fixed;
+    	z-index: 10;
+    	top: 40%;
+    	left: 0;
+        
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            
+            li {
+                display: block;
+                margin: 0;
+                padding: 0;
+                
+                .a11y-control {
+                    padding: .5em;
+                    border-width: 1px 1px 1px 1px;
+                    border-style: solid;
+                    border-color: $buttonText;
+                    background: $buttonBack;
+                    color: $buttonText;
+                    font-size: 100%;
+                    cursor: pointer;
+                    
+                    &:hover,
+                    &:focus {
+                        background: $buttonHover;
+                    }
+                    
+                    &[aria-pressed="true"] {
+                        background: $buttonActive;
+                    }
+                    
+                    .a11y-icon {
+                        color: $buttonText;
+                    }
+                }
+                
+                &:first-of-type {
+                    
+                    .a11y-control {
+                        border-radius: 0 $buttonRadius 0 0;
+                    }
+                }
+                
+                &:last-of-type {
+                    
+                    .a11y-control {
+                        border-radius: 0 0 $buttonRadius 0;
+                    }
+                }
+            }
+        }
+    }
+}
