@@ -1,0 +1,9 @@
+body.has-a11y-toolbar.a11y-desaturate {
+	filter: grayscale(100%) !important;
+	-webkit-filter: grayscale(100%) !important;
+	-webkit-filter: grayscale(1) !important;
+	-moz-filter: grayscale(100%) !important;
+	-ms-filter: grayscale(100%) !important;
+	-o-filter: grayscale(100%) !important;
+	filter: gray;
+}

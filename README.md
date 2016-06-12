@@ -6,27 +6,15 @@
 * Doesn't change existing site layout, but will enhance readability when used
 * Semantic; assistive technology and keyboard accessible
 
-## Accessible fallbacks
+## Changelog
 
-Thanks to The Filament Group's [exploration on fallback options](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html), I've implemented their A Font Garde toolkit which provides graceful degredation to browsers who don't support `@font-face` or in cases where the font stylesheets or fonts themselves don't load.
-
-The implementation relies on a small bit of additional markup, a customized Modernizr to detect font-face capabilities, and two small JS and CSS files.
-
-### A Font Garde
-
-The toolkit works by trying to load the font icons at page load. If the test passes, the name of the font is added to the `html` tag as a class. Stylesheets then render icon fonts referencing that classname. If the tests fail, the font icons don't load and instead fallback to either a glyph/image or text.
-
-## Known issues (things in-progress)
-
-* Only Firefox and Webkit browsers can desaturate
-* Sometimes the styles of a website might take precedence over styles for the toolbar; I'm trying to avoid using `!importants`
-* There's an edge-case issue where users who specify their own fonts or disallow sites to use their respective stylesheets, the icon fonts won't load. I'm working on an accessible fallback approach taking cues from [The Filament Group](https://www.filamentgroup.com/lab/bulletproof_icon_fonts.html).
-* There is a [known bug with Firefox](https://bugzilla.mozilla.org/show_bug.cgi?id=760436) and local font downloads; this example won't work locally, but will on a server.
-
-## Todos
-
-* The JS file has fixed paths that should be edited per site.
-* ~~Continue to explore accessible fallback options (that aren't necessarily image-based) for when the stylesheet isn't available.~~
+0.1.0 10 Jun 2016
+* Removed AFontGarde and Modernizr as they are no longer necessary
+* Removed the skip links as they may conflict with existing skip links
+* Converted CSS to Sass partials for easier inclusion
+* Compiled Sass partials into a single CSS file
+* Using body classes to control presentation rather than swapping in/out stylesheets
+* Re-wrote JavaScript to be more modular and have better integration with AMD setups
 
 ## Pull Requests and contributions
 
