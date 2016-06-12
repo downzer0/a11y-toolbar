@@ -1,10 +1,9 @@
 # a11y (accessibility) toolbar
 
-## Goals
-* Subtle, yet noticeable; easy to use
-* Minimally "designed" so that anyone and everyone can and will want to use it on their site, blog, ecommerce, etc.
-* Doesn't change existing site layout, but will enhance readability when used
-* Semantic; assistive technology and keyboard accessible
+## About
+The accessibility toolbar provides basic controls allowing visitors to increase the contrast of a website, switch to a grayscale/desaturated view, or increase the size of the fonts. Cookies are stored for future visits and it doesn't impact styles outside of the scope of the toolbar unless requested.
+
+Simply include the CSS and JS files on your site. It's that simple.
 
 ## Changelog
 
@@ -28,18 +27,10 @@ Contributions are welcome! Please submit a pull request to make this plugin bett
 * [XhmikosR](https://github.com/XhmikosR)
 
 ## License
+MIT license
 
-This file is part of the a11y toolbar.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The a11y toolbar is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-The a11y toolbar is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with the a11y toolbar.  If not, see <http://www.gnu.org/licenses/>.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
